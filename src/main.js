@@ -7,20 +7,17 @@ class ConceptalizeApp {
         };
         this.columnToggles = document.querySelectorAll('.column-toggle');
         this.tabButtons = document.querySelectorAll('.tab-button');
-        this.tabPanels = document.querySelectorAll('.tab-panel');
 
         this.initializeEventListeners();
         this.checkColumnVisibility();
     }
 
     initializeEventListeners() {
-        // Column toggle buttons
-        this.columnToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => this.toggleColumn(toggle));
+        document.querySelectorAll('[data-column]').forEach(button => {
+            button.addEventListener('click', () => this.toggleColumn(button));
         });
 
-        // Tab buttons
-        this.tabButtons.forEach(button => {
+        document.querySelectorAll('[data-tab]').forEach(button => {
             button.addEventListener('click', () => this.switchTab(button));
         });
 
@@ -31,7 +28,7 @@ class ConceptalizeApp {
     toggleColumn(toggleButton) {
         const columnId = toggleButton.dataset.column;
         const column = this.columns[columnId];
-        const icon = toggleButton.querySelector('.icon');
+        const icon = toggleButton.querySelector('svg');
 
         if (column.style.display === 'none' || !column.style.display) {
             column.style.display = 'flex';
@@ -50,39 +47,39 @@ class ConceptalizeApp {
 
     switchTab(tabButton) {
         const tabId = tabButton.dataset.tab;
-        const parent = tabButton.parentElement;
-        const currentTab = parent.querySelector('.tab-button.active');
+        const tabContent = document.querySelector('.tab-content');
+        const panels = tabContent.querySelectorAll('.tab-panel');
 
-        // Remove active class from current tab
-        if (currentTab) {
-            currentTab.classList.remove('active');
-        }
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.classList.remove('active');
+        });
 
-        // Add active class to new tab
+        // Remove active class from all panels
+        panels.forEach(panel => {
+            panel.classList.remove('active');
+        });
+
+        // Add active class to selected tab
         tabButton.classList.add('active');
 
-        // Show/hide tab panels
-        this.tabPanels.forEach(panel => {
-            if (panel.dataset.tab === tabId) {
-                panel.classList.add('active');
-            } else {
-                panel.classList.remove('active');
-            }
-        });
+        // Add active class to corresponding panel
+        const activePanel = tabContent.querySelector(`[data-tab="${tabId}"]`);
+        if (activePanel) {
+            activePanel.classList.add('active');
+        }
     }
 
     checkColumnVisibility() {
         const visibleColumns = Object.values(this.columns)
             .filter(column => column.style.display !== 'none');
 
-        // Adjust column width based on number of visible columns
         const width = 100 / visibleColumns.length + '%';
         visibleColumns.forEach(column => {
             column.style.width = width;
             column.style.flex = `0 0 ${width}`;
         });
 
-        // If only one column is visible, make it full width
         if (visibleColumns.length === 1) {
             visibleColumns[0].style.width = '100%';
             visibleColumns[0].style.flex = '1 1 100%';
@@ -91,6 +88,6 @@ class ConceptalizeApp {
 }
 
 // Initialize the app when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
     new ConceptalizeApp();
 });

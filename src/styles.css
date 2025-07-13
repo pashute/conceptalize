@@ -37,20 +37,6 @@
         @apply bg-gray-50;
     }
 
-    .column-toggle .icon {
-        @apply text-xl;
-    }
-
-    .i-eye::before {
-        @apply inline-block w-6 h-6 bg-no-repeat bg-center bg-contain;
-        content: "";
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3ccircle cx='12' cy='12' r='2'%3e%3c/circle%3e%3ccircle cx='12' cy='12' r='10'%3e%3c/circle%3e%3c/svg%3e");
-    }
-
-    .i-eye.opacity-50::before {
-        opacity: 0.5;
-    }
-
     .main-content {
         @apply flex-1 flex gap-4 p-4;
     }
