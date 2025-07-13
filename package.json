@@ -4,7 +4,7 @@
   "description": "A web application with a three-column layout featuring control and status strips.",
   "main": "main.js",
   "scripts": {
-    "dev": "live-server",
+    "dev": "http-server -c-1 -a localhost -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/pashute/conceptalize#readme",
   "devDependencies": {
+    "http-server": "^14.1.1",
     "live-server": "^1.2.2"
   }
 }

@@ -4,46 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conceptalize</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <!-- Main control strip -->
-    <div class="control-strip top-strip">
+    <!-- Top control strip -->
+    <div class="top-strip">
         <div class="strip-content">
-            <h1>Conceptalize</h1>
+            <div class="strip-content-left">
+                <h1>Conceptalize v0.103</h1>
+                <small>working eye checkboxes</small>
+            </div>
+            <div class="column-toggles">
+                <button onclick="toggleEye('concepts')" class="toggle-label" data-column="1">
+                    <span class="icon-container">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                    Concepts
+                </button>
+                <button onclick="toggleEye('analysis')" class="toggle-label" data-column="2">
+                    <span class="icon-container">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                    Analysis
+                </button>
+                <button onclick="toggleEye('discussion')" class="toggle-label" data-column="3">
+                    <span class="icon-container">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                    Discussion
+                </button>
+            </div>
         </div>
     </div>
 
     <!-- Main content area -->
-    <div class="main-content">
-        <!-- Left column -->
-        <div class="column">
+    <div class="main-content flex">
+        <!-- Concepts Column -->
+        <div id="concepts" class="column bg-white border-r border-gray-200">
             <div class="column-control-strip">
-                <div class="strip-content">
-                    Column 1
-                </div>
+                <div class="column-settings">⚙️</div>
+                <div class="column-resize-handle">🔍</div>
             </div>
-            <div class="column-content"></div>
+            <div class="column-content">
+                <h2>Concepts</h2>
+                <div class="draggable-item">Concept 1</div>
+                <div class="draggable-item">Concept 2</div>
+            </div>
         </div>
 
-        <!-- Middle column -->
-        <div class="column">
+        <!-- Analysis Column -->
+        <div id="analysis" class="column bg-white border-r border-gray-200">
             <div class="column-control-strip">
-                <div class="strip-content">
-                    Column 2
-                </div>
+                <div class="column-settings">⚙️</div>
+                <div class="column-resize-handle">🔍</div>
             </div>
-            <div class="column-content"></div>
+            <div class="column-content">
+                <h2>Analysis</h2>
+                <div class="draggable-item">Analysis 1</div>
+                <div class="draggable-item">Analysis 2</div>
+            </div>
         </div>
 
-        <!-- Right column -->
-        <div class="column">
+        <!-- Discussion Column -->
+        <div id="discussion" class="column bg-white">
             <div class="column-control-strip">
-                <div class="strip-content">
-                    Column 3
-                </div>
+                <div class="column-settings">⚙️</div>
+                <div class="column-resize-handle">🔍</div>
             </div>
-            <div class="column-content"></div>
+            <div class="column-content">
+                <h2>Discussion</h2>
+                <div class="draggable-item">Discussion 1</div>
+                <div class="draggable-item">Discussion 2</div>
+                <div class="column-item" draggable="true">Item 5</div>
+                <div class="column-item" draggable="true">Item 6</div>
+            </div>
         </div>
     </div>
 
