@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-sans bg-gray-50 text-gray-900;
+    }
+}
+
+@layer components {
+    .app-container {
+        @apply flex flex-col h-screen;
+    }
+
+    .control-strip {
+        @apply bg-white p-4 border-b border-gray-200 flex justify-between items-center;
+    }
+
+    .app-title {
+        @apply text-xl font-bold;
+    }
+
+    .version {
+        @apply text-sm text-gray-600 ml-2;
+    }
+
+    .column-toggle-container {
+        @apply flex gap-4;
+    }
+
+    .column-toggle {
+        @apply border border-gray-200 px-4 py-2 rounded-lg flex items-center gap-2 cursor-pointer transition-colors;
+    }
+
+    .column-toggle:hover {
+        @apply bg-gray-50;
+    }
+
+    .column-toggle .icon {
+        @apply text-xl;
+    }
+
+    .i-eye::before {
+        @apply inline-block w-6 h-6 bg-no-repeat bg-center bg-contain;
+        content: "";
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3ccircle cx='12' cy='12' r='2'%3e%3c/circle%3e%3ccircle cx='12' cy='12' r='10'%3e%3c/circle%3e%3c/svg%3e");
+    }
+
+    .i-eye.opacity-50::before {
+        opacity: 0.5;
+    }
+
+    .main-content {
+        @apply flex-1 flex gap-4 p-4;
+    }
+
+    .column {
+        @apply flex-1 bg-white rounded-lg shadow-sm flex flex-col min-w-0;
+    }
+
+    .column-header {
+        @apply p-4 border-b border-gray-200 font-bold;
+    }
+
+    .column-content {
+        @apply flex-1 p-4 overflow-y-auto;
+    }
+
+    .discussion-controls {
+        @apply border-b border-gray-200 p-4;
+    }
+
+    .discussion-control-btn {
+        @apply px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors;
+    }
+
+    .chat-messages {
+        @apply space-y-4;
+    }
+
+    .message {
+        @apply w-full;
+    }
+
+    .message-bubble {
+        @apply rounded-lg p-4 max-w-md;
+    }
+
+    .user-message .message-bubble {
+        @apply bg-blue-100;
+    }
+
+    .bot-message .message-bubble {
+        @apply bg-gray-100;
+    }
+
+    .tab-controls {
+        @apply p-4 border-b border-gray-200 flex gap-2;
+    }
+
+    .tab-button {
+        @apply px-4 py-2 rounded-lg cursor-pointer transition-colors;
+    }
+
+    .tab-button.active {
+        @apply bg-blue-600 text-white;
+    }
+
+    .tab-content {
+        @apply flex-1 flex flex-col;
+    }
+
+    .tab-panel {
+        @apply hidden p-4;
+    }
+
+    .tab-panel.active {
+        @apply block;
+    }
+
+    .analysis-content {
+        @apply space-y-4;
+    }
+
+    .analysis-section {
+        @apply space-y-2;
+    }
+
+    .topic-tag {
+        @apply bg-blue-100 text-blue-800 px-2 py-1 rounded;
+    }
+
+    .complexity-meter {
+        @apply bg-gray-200 rounded-full h-2;
+    }
+
+    .complexity-fill {
+        @apply bg-blue-600 rounded-full h-full;
+    }
+
+    .related-topic {
+        @apply bg-gray-100 px-3 py-1 rounded;
+    }
+
+    .concept-list {
+        @apply space-y-4;
+    }
+
+    .concept-card {
+        @apply bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow;
+    }
+
+    .status-strip {
+        @apply bg-white p-4 border-t border-gray-200;
+    }
+}

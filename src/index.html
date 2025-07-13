@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptalize v0.100</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="h-full">
+    <div class="app-container">
+        <!-- Top Control Strip -->
+        <div class="control-strip">
+            <div class="app-title">Conceptalize <span class="version">v0.100</span></div>
+            <div class="column-toggle-container">
+                <button class="column-toggle" data-column="discussion">
+                    <span class="icon i-eye"></span>
+                    Discussion
+                </button>
+                <button class="column-toggle" data-column="analysis">
+                    <span class="icon i-eye"></span>
+                    Analysis
+                </button>
+                <button class="column-toggle" data-column="concepts">
+                    <span class="icon i-eye"></span>
+                    Concepts
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div class="column discussion">
+                <div class="column-header">Discussion</div>
+                <div class="column-content">
+                    <div class="discussion-controls flex justify-between items-center p-4 border-b border-gray-200">
+                        <div class="flex gap-4">
+                            <button class="discussion-control-btn">New Discussion</button>
+                            <button class="discussion-control-btn">Clear History</button>
+                        </div>
+                        <div class="flex gap-4">
+                            <button class="discussion-control-btn">Save</button>
+                            <button class="discussion-control-btn">Load</button>
+                        </div>
+                    </div>
+                    <div class="chat-messages p-4 space-y-4">
+                        <div class="message user-message flex justify-end">
+                            <div class="message-bubble bg-blue-100 rounded-lg p-4 max-w-md">
+                                <p class="text-gray-900">Hello, can you explain quantum computing?</p>
+                            </div>
+                        </div>
+                        <div class="message bot-message flex justify-start">
+                            <div class="message-bubble bg-gray-100 rounded-lg p-4 max-w-md">
+                                <p class="text-gray-900">Quantum computing is a type of computing that uses quantum-mechanical phenomena...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column analysis">
+                <div class="column-header">Analysis</div>
+                <div class="tab-controls">
+                    <button class="tab-button active" data-tab="request">Request Analysis</button>
+                    <button class="tab-button" data-tab="response">Response Analysis</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-panel active" data-tab="request">
+                        <div class="analysis-content p-4 space-y-4">
+                            <div class="analysis-section">
+                                <h3 class="text-lg font-semibold mb-2">Topic Analysis</h3>
+                                <div class="flex gap-2">
+                                    <span class="topic-tag bg-blue-100 text-blue-800 px-2 py-1 rounded">Physics</span>
+                                    <span class="topic-tag bg-blue-100 text-blue-800 px-2 py-1 rounded">Quantum Mechanics</span>
+                                    <span class="topic-tag bg-blue-100 text-blue-800 px-2 py-1 rounded">Computer Science</span>
+                                </div>
+                            </div>
+                            <div class="analysis-section">
+                                <h3 class="text-lg font-semibold mb-2">Complexity Level</h3>
+                                <div class="complexity-meter bg-gray-200 rounded-full h-2">
+                                    <div class="complexity-fill bg-blue-600 rounded-full h-full w-3/4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" data-tab="response">
+                        <div class="analysis-content p-4 space-y-4">
+                            <div class="analysis-section">
+                                <h3 class="text-lg font-semibold mb-2">Key Concepts</h3>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Quantum Bits (Qubits)</li>
+                                    <li>Superposition</li>
+                                    <li>Entanglement</li>
+                                    <li>Quantum Gates</li>
+                                </ul>
+                            </div>
+                            <div class="analysis-section">
+                                <h3 class="text-lg font-semibold mb-2">Related Topics</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="related-topic bg-gray-100 px-3 py-1 rounded">Quantum Algorithms</span>
+                                    <span class="related-topic bg-gray-100 px-3 py-1 rounded">Quantum Cryptography</span>
+                                    <span class="related-topic bg-gray-100 px-3 py-1 rounded">Quantum Teleportation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column concepts">
+                <div class="column-header">Concepts</div>
+                <div class="column-content">
+                    <div class="concept-list space-y-4 p-4">
+                        <div class="concept-card bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="text-lg font-semibold mb-2">Quantum Superposition</h4>
+                            <p class="text-gray-600">The principle that a physical system exists partly in all its particular, theoretically possible states simultaneously...</p>
+                        </div>
+                        <div class="concept-card bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="text-lg font-semibold mb-2">Quantum Entanglement</h4>
+                            <p class="text-gray-600">A physical phenomenon that occurs when pairs or groups of particles are generated, interact, or share spatial proximity...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Status Strip -->
+        <div class="status-strip">
+            <!-- Status content will go here -->
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,25 +1,32 @@
 {
   "name": "conceptalize",
-  "version": "1.0.0",
-  "description": "A web application with a three-column layout featuring control and status strips.",
-  "main": "main.js",
+  "version": "0.100",
+  "description": "A modern web application for concept analysis and discussion",
+  "main": "src/main.js",
   "scripts": {
-    "dev": "http-server -c-1 -a localhost -p 8080",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "live-server src/",
+    "build": "npx copyfiles src/**/* dist/",
+    "start": "npm run build && http-server dist/ -c-1 -a localhost -p 8080"
   },
-  "keywords": [],
+  "keywords": [
+    "concept",
+    "analysis",
+    "discussion",
+    "web-app"
+  ],
   "author": "Pashute",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pashute/conceptalize.git"
   },
-  "bugs": {
-    "url": "https://github.com/pashute/conceptalize/issues"
-  },
   "homepage": "https://github.com/pashute/conceptalize#readme",
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "copyfiles": "^2.4.1",
     "http-server": "^14.1.1",
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11"
   }
 }
